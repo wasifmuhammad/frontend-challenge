@@ -1,24 +1,46 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.svg";
+import "./App.css";
+import { Box, Typography } from "@mui/material";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Navbar from "./components/Navbar";
+import AddItem from "./pages/Additem";
+import Items from "./pages/items";
+import CartItems from "./pages/CartItems";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+    <>
+      <BrowserRouter>
+        <Navbar />
+        <Box
+          sx={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            flexDirection: "column",
+          }}
         >
-          Learn React
-        </a>
-      </header>
-    </div>
+          <Routes>
+            <Route path="/items" element={<Items />} />
+            <Route path="/cartitems" element={<CartItems />} />
+            <Route path="/additem" element={<AddItem />} />
+            <Route
+              path="/"
+              element={
+                <Box
+                  display="flex"
+                  height="100vh"
+                  justifyContent="center"
+                  alignItems="center"
+                >
+                  <Typography variant="h1">Welcome to Me!</Typography>
+                </Box>
+              }
+            />
+          </Routes>
+        </Box>
+      </BrowserRouter>
+    </>
   );
 }
 
