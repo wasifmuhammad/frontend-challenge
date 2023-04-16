@@ -2,7 +2,13 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Paste this in your node-code to avoid Cors errors
+```
+const cors = require('cors');
+app.use(cors());
+```
 ## Available Scripts
+
 
 In the project directory, you can run:
 
